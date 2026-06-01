@@ -1,0 +1,25 @@
+Part C
+
+Prompt: Customize the HTML user interface for the customer’s application.
+
+File: src/main/resources/templates/mainscreen.html
+Line(s): 14 & 20
+Change: Changed the shop name from “My Bicycle Shop” to "My Car Shop" and "Shop" to “Motor City Performance Garage”.
+
+Part D
+
+Prompt: Add an “About” page to the application and include navigation to and from the About page and the main screen.
+
+File: src/main/resources/templates/about.html
+
+Line(s): 1-18
+
+Change: Added About page
+
+Prompt 2: Mapped about page to the main screen.
+
+File:src/main/java/com/example/demo/controllers/MainScreenControllerr.java
+
+Line(s): 55-59
+
+Change: Added About page mapping

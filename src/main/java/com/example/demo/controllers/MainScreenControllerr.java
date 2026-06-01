@@ -52,4 +52,9 @@ public class MainScreenControllerr {
         theModel.addAttribute("productkeyword",productkeyword);
         return "mainscreen";
     }
+    // ✅ PART D ADDITION (ABOUT PAGE)
+    @GetMapping("/about")
+    public String showAbout() {
+        return "about";
+    }
 }

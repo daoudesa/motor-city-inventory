@@ -1,8 +1,0 @@
-Part C
-
-Prompt: Customize the HTML user interface for the customer’s application.
-
-File: src/main/resources/templates/mainscreen.html
-Line(s): 14 & 20
-Change: Changed the shop name from “My Bicycle Shop” to "My Car Shop" and "Shop" to “Motor City Performance Garage”.
-
