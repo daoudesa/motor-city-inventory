@@ -23,3 +23,13 @@ File:src/main/java/com/example/demo/controllers/MainScreenControllerr.java
 Line(s): 55-59
 
 Change: Added About page mapping
+
+PART E
+
+Prompt: Add sample inventory with 5 parts and 5 products (only when database is empty).
+
+File: BootStrapData.java
+
+Line: 42–114
+
+Change: Added conditional check to prevent duplicates and inserted 5 Parts and 5 products data only loads when database is empty.

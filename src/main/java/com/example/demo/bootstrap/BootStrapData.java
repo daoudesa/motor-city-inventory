@@ -39,6 +39,81 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        if (partRepository.count() == 0 && productRepository.count() == 0) {
+
+            // ===== PARTS (E) =====
+            OutsourcedPart p1 = new OutsourcedPart();
+            p1.setName("Brake Pads");
+            p1.setInv(25);
+            p1.setPrice(49.99);
+            p1.setCompanyName("Motor City Performance Garage");
+
+            OutsourcedPart p2 = new OutsourcedPart();
+            p2.setName("Engine Oil");
+            p2.setInv(40);
+            p2.setPrice(29.99);
+            p2.setCompanyName("Motor City Performance Garage");
+
+            OutsourcedPart p3 = new OutsourcedPart();
+            p3.setName("Air Filter");
+            p3.setInv(30);
+            p3.setPrice(19.99);
+            p3.setCompanyName("Motor City Performance Garage");
+
+            OutsourcedPart p4 = new OutsourcedPart();
+            p4.setName("Spark Plugs");
+            p4.setInv(60);
+            p4.setPrice(14.99);
+            p4.setCompanyName("Motor City Performance Garage");
+
+            OutsourcedPart p5 = new OutsourcedPart();
+            p5.setName("Tires Set");
+            p5.setInv(12);
+            p5.setPrice(199.99);
+            p5.setCompanyName("Motor City Performance Garage");
+
+            // save parts
+            partRepository.save(p1);
+            partRepository.save(p2);
+            partRepository.save(p3);
+            partRepository.save(p4);
+            partRepository.save(p5);
+
+            // ===== PRODUCTS (5) =====
+            Product pr1 = new Product();
+            pr1.setName("Basic Maintenance Kit");
+            pr1.setInv(10);
+            pr1.setPrice(119.99);
+
+            Product pr2 = new Product();
+            pr2.setName("Performance Upgrade Kit");
+            pr2.setInv(5);
+            pr2.setPrice(499.99);
+
+            Product pr3 = new Product();
+            pr3.setName("Oil Change Package");
+            pr3.setInv(15);
+            pr3.setPrice(79.99);
+
+            Product pr4 = new Product();
+            pr4.setName("Brake Replacement Package");
+            pr4.setInv(8);
+            pr4.setPrice(299.99);
+
+            Product pr5 = new Product();
+            pr5.setName("Full Tune-Up Bundle");
+            pr5.setInv(3);
+            pr5.setPrice(699.99);
+
+            // save products
+            productRepository.save(pr1);
+            productRepository.save(pr2);
+            productRepository.save(pr3);
+            productRepository.save(pr4);
+            productRepository.save(pr5);
+        }
+
+
        /*
         OutsourcedPart o= new OutsourcedPart();
         o.setCompanyName("Western Governors University");
