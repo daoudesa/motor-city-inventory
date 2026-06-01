@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -40,6 +41,31 @@ public class MainScreenControllerr {
         this.partService=partService;
         this.productService=productService;
     }
+
+    @GetMapping("/buyProduct")
+    public String buyProduct(@RequestParam("productID") int productID, Model model) {
+
+        Product product = productService.findById(productID);
+
+        if (product != null) {
+
+            if (product.getInv() > 0) {
+                product.setInv(product.getInv() - 1);
+                productService.save(product);
+
+                model.addAttribute("message", "Purchase successful!");
+            } else {
+                model.addAttribute("message", "Purchase failed: Out of stock.");
+            }
+        }
+
+        // reload updated lists
+        model.addAttribute("parts", partService.listAll(null));
+        model.addAttribute("products", productService.listAll(null));
+
+        return "mainscreen";
+    }
+
     @GetMapping("/mainscreen")
     public String listPartsandProducts(Model theModel, @Param("partkeyword") String partkeyword, @Param("productkeyword") String productkeyword){
         //add to the sprig model

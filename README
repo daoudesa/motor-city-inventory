@@ -6,6 +6,8 @@ File: src/main/resources/templates/mainscreen.html
 Line(s): 14 & 20
 Change: Changed the shop name from “My Bicycle Shop” to "My Car Shop" and "Shop" to “Motor City Performance Garage”.
 
+-------
+
 Part D
 
 Prompt: Add an “About” page to the application and include navigation to and from the About page and the main screen.
@@ -24,6 +26,8 @@ Line(s): 55-59
 
 Change: Added About page mapping
 
+---------
+
 PART E
 
 Prompt: Add sample inventory with 5 parts and 5 products (only when database is empty).
@@ -33,3 +37,22 @@ File: BootStrapData.java
 Line: 42–114
 
 Change: Added conditional check to prevent duplicates and inserted 5 Parts and 5 products data only loads when database is empty.
+
+---------
+
+PART F
+
+Prompt: Add a “Buy Now” button to the product list.
+
+File: src/main/resources/templates/mainscreen.html
+Lines: 85-99
+Change: Added a “Buy Now” button next to Update and Delete buttons in the product list.
+
+File: src/main/java/com/example/demo/controllers/MainScreenControllerr.java
+Lines: 45-67 & 13
+Change: Added RequestParam import and Added /buyProduct controller method that decrements product inventory by 1 when purchased. Ensures associated parts are not affected.
+
+File: src/main/resources/templates/mainscreen.html
+Lines: 20-22
+Change: Added Thymeleaf message display block to show success or failure message after purchase.
+
