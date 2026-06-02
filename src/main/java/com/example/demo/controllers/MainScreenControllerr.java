@@ -76,6 +76,9 @@ public class MainScreenControllerr {
         List<Product> productList=productService.listAll(productkeyword);
         theModel.addAttribute("products", productList);
         theModel.addAttribute("productkeyword",productkeyword);
+
+        theModel.addAttribute("message", null);
+
         return "mainscreen";
     }
     // ✅ PART D ADDITION (ABOUT PAGE)

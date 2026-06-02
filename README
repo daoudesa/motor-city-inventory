@@ -1,16 +1,18 @@
 Part C
 
-Prompt: Customize the HTML user interface for the customer’s application.
+Prompt: Customized the HTML user interface for the customer’s application.
 
 File: src/main/resources/templates/mainscreen.html
+
 Lines: 14 & 20
+
 Change: Changed the shop name from “My Bicycle Shop” to "My Car Shop" and "Shop" to “Motor City Performance Garage”.
 
 -------
 
 Part D
 
-Prompt: Add an “About” page to the application and include navigation to and from the About page and the main screen.
+Prompt: Added an “About” page to the application and include navigation to and from the About page and the main screen.
 
 File: src/main/resources/templates/about.html
 
@@ -30,7 +32,7 @@ Change: Added About page mapping
 
 Part E
 
-Prompt: Add sample inventory with 5 parts and 5 products (only when database is empty).
+Prompt: Added sample inventory with 5 parts and 5 products (only when database is empty).
 
 File: BootStrapData.java
 
@@ -42,15 +44,15 @@ Change: Added conditional check to prevent duplicates and inserted 5 Parts and 5
 
 Part F
 
-Prompt: Add a “Buy Now” button to the product list.
+Prompt: Added a Buy Now button to the product list.
 
 File: src/main/resources/templates/mainscreen.html
 Lines: 85-99
-Change: Added a “Buy Now” button next to Update and Delete buttons in the product list.
+Change: Added a Buy Now button next to Update and Delete buttons in the product list.
 
 File: src/main/java/com/example/demo/controllers/MainScreenControllerr.java
 Lines: 45-67 & 13
-Change: Added RequestParam import and Added /buyProduct controller method that decrements product inventory by 1 when purchased. Ensures associated parts are not affected.
+Change: Added RequestParam import and Added /buyProduct controller method that decrements product inventory by 1 when purchased. Made sure associated parts are not affected.
 
 File: src/main/resources/templates/mainscreen.html
 Lines: 20-22
@@ -96,7 +98,7 @@ Change: Added validation to ensure inventory is between minimum and maximum inve
 Part H
 
 
-Prompt: Add validation for between or at the maximum and minimum fields.
+Prompt: Added validation for between or at the maximum and minimum fields.
 
 File: src/main/java/com/example/demo/domain/Part.java
 File: src/main/java/com/example/demo/controllers/AddInhousePartController.java
@@ -106,8 +108,7 @@ File: src/main/resources/templates/OutsourcedPartForm.html
 
 Lines: 45-53 in AddInhousePartController.java, 46-59 in AddOutsourcedPartController.java,
 
-Change:
-Added validation to enforce inventory constraints based on minimum and maximum values.
+Change: Added validation to enforce inventory constraints based on minimum and maximum values.
 
 - Added logic to prevent saving a part if inventory is less than minimum inventory.
 - Added logic to prevent saving a part if inventory is greater than maximum inventory.
@@ -119,7 +120,7 @@ Added validation to enforce inventory constraints based on minimum and maximum v
 
 Part I
 
-Prompt: Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+Prompt: Added at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
 Lines: 159-176
 
