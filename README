@@ -117,7 +117,18 @@ Added validation to enforce inventory constraints based on minimum and maximum v
 
 ---------
 
-Part F
+Part I
+
+Prompt: Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+
+Lines: 159-176
+
+Change: Added unit tests to verify the minimum and maximum inventory fields (minInv and maxInv) for both InhousePart and OutsourcedPart
+
+
+-----
+
+
 
 
 

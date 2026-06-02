@@ -156,4 +156,22 @@ class PartTest {
         partOut.setId(1l);
         assertEquals(partIn.hashCode(),partOut.hashCode());
     }
+
+    @Test
+    void testMinInv() {
+        partIn.setMinInv(5);
+        assertEquals(5, partIn.getMinInv());
+
+        partOut.setMinInv(3);
+        assertEquals(3, partOut.getMinInv());
+    }
+
+    @Test
+    void testMaxInv() {
+        partIn.setMaxInv(10);
+        assertEquals(10, partIn.getMaxInv());
+
+        partOut.setMaxInv(20);
+        assertEquals(20, partOut.getMaxInv());
+    }
 }
