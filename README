@@ -90,3 +90,34 @@ Lines: 45-49
 
 Change: Added validation to ensure inventory is between minimum and maximum inventory values.
 
+
+----------
+
+Part H
+
+
+Prompt: Add validation for between or at the maximum and minimum fields.
+
+File: src/main/java/com/example/demo/domain/Part.java
+File: src/main/java/com/example/demo/controllers/AddInhousePartController.java
+File: src/main/java/com/example/demo/controllers/AddOutsourcedPartController.java
+File: src/main/resources/templates/InhousePartForm.html
+File: src/main/resources/templates/OutsourcedPartForm.html
+
+Lines: 45-53 in AddInhousePartController.java, 46-59 in AddOutsourcedPartController.java,
+
+Change:
+Added validation to enforce inventory constraints based on minimum and maximum values.
+
+- Added logic to prevent saving a part if inventory is less than minimum inventory.
+- Added logic to prevent saving a part if inventory is greater than maximum inventory.
+- Updated both InhousePartForm and OutsourcedPartForm to display error messages when validation fails.
+- Ensured validation runs during both add and update operations for parts.
+
+
+---------
+
+Part F
+
+
+
