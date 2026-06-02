@@ -129,6 +129,12 @@ Change: Added unit tests to verify the minimum and maximum inventory fields (min
 -----
 
 
+Part J
 
+Prompt: Removed the class files for any unused validators in order to clean my code.
+
+File: src/main/java/com/example/demo/validators/DeletePartValidator
+
+Change: Removed unused validator class DeletePartValidator
 
 
