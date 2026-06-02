@@ -9,7 +9,7 @@
 <body>
 <h1>Outsourced Part Detail</h1>
 
-<form action="#" th:action="@{/showFormAddOutPart}" th:object="${outsourcedpart}" method="POST"}>
+<form action="#" th:action="@{/showFormAddOutPart}" th:object="${outsourcedpart}" method="POST">
 
 <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
@@ -21,6 +21,14 @@
 
 <p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
     <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
+
+<p>
+    <input type="text" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/>
+</p>
+
+<p>
+    <input type="text" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"/>
+</p>
 
     <p><input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4 col-4"/></p>
 

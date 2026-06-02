@@ -45,30 +45,40 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart p1 = new OutsourcedPart();
             p1.setName("Brake Pads");
             p1.setInv(25);
+            p1.setMinInv(5);
+            p1.setMaxInv(50);
             p1.setPrice(49.99);
             p1.setCompanyName("Motor City Performance Garage");
 
             OutsourcedPart p2 = new OutsourcedPart();
             p2.setName("Engine Oil");
             p2.setInv(40);
+            p2.setMinInv(5);
+            p2.setMaxInv(80);
             p2.setPrice(29.99);
             p2.setCompanyName("Motor City Performance Garage");
 
             OutsourcedPart p3 = new OutsourcedPart();
             p3.setName("Air Filter");
             p3.setInv(30);
+            p3.setMinInv(5);
+            p3.setMaxInv(60);
             p3.setPrice(19.99);
             p3.setCompanyName("Motor City Performance Garage");
 
             OutsourcedPart p4 = new OutsourcedPart();
             p4.setName("Spark Plugs");
             p4.setInv(60);
+            p4.setMinInv(10);
+            p4.setMaxInv(100);
             p4.setPrice(14.99);
             p4.setCompanyName("Motor City Performance Garage");
 
             OutsourcedPart p5 = new OutsourcedPart();
             p5.setName("Tires Set");
             p5.setInv(12);
+            p5.setMinInv(2);
+            p5.setMaxInv(25);
             p5.setPrice(199.99);
             p5.setCompanyName("Motor City Performance Garage");
 

@@ -3,7 +3,7 @@ Part C
 Prompt: Customize the HTML user interface for the customer’s application.
 
 File: src/main/resources/templates/mainscreen.html
-Line(s): 14 & 20
+Lines: 14 & 20
 Change: Changed the shop name from “My Bicycle Shop” to "My Car Shop" and "Shop" to “Motor City Performance Garage”.
 
 -------
@@ -14,7 +14,7 @@ Prompt: Add an “About” page to the application and include navigation to and
 
 File: src/main/resources/templates/about.html
 
-Line(s): 1-18
+Lines: 1-18
 
 Change: Added About page
 
@@ -22,25 +22,25 @@ Prompt 2: Mapped about page to the main screen.
 
 File:src/main/java/com/example/demo/controllers/MainScreenControllerr.java
 
-Line(s): 55-59
+Lines: 55-59
 
 Change: Added About page mapping
 
 ---------
 
-PART E
+Part E
 
 Prompt: Add sample inventory with 5 parts and 5 products (only when database is empty).
 
 File: BootStrapData.java
 
-Line: 42–114
+Lines: 42–114
 
 Change: Added conditional check to prevent duplicates and inserted 5 Parts and 5 products data only loads when database is empty.
 
 ---------
 
-PART F
+Part F
 
 Prompt: Add a “Buy Now” button to the product list.
 
@@ -55,4 +55,38 @@ Change: Added RequestParam import and Added /buyProduct controller method that d
 File: src/main/resources/templates/mainscreen.html
 Lines: 20-22
 Change: Added Thymeleaf message display block to show success or failure message after purchase.
+
+---------
+
+Part G
+
+Prompt: Modified parts to track minimum and maximum inventory.
+
+File: src/main/java/com/example/demo/domain/Part.java
+
+Lines: 31–36, 48–59, and 92–107
+
+Change: Added minimum and maximum inventory fields, updated constructors, and added getters and setters for minInv and maxInv.
+
+
+File: src/main/java/com/example/demo/bootstrap/BootStrapData.java
+
+Lines: 48-81
+
+Change: Modified sample inventory to include minimum and maximum inventory values for all parts.
+
+
+File: src/main/resources/templates/InhousePartForm.html
+File: src/main/resources/templates/OutsourcedPartForm.html
+
+Lines: 24-31 in InhousePartForm.html & 24-31 in OutsourcedPartForm
+
+Change: Added additional text input fields to allow users to set minimum and maximum inventory values.
+
+
+File: src/main/java/com/example/demo/controllers/AddInhousePartController.java
+
+Lines: 45-49
+
+Change: Added validation to ensure inventory is between minimum and maximum inventory values.
 
