@@ -54,12 +54,10 @@ public class AddInhousePartController{
             return "InhousePartForm";
         }
         else{
-        InhousePartService repo=context.getBean(InhousePartServiceImpl.class);
-        InhousePart ip=repo.findById((int)part.getId());
-        if(ip!=null)part.setProducts(ip.getProducts());
+            InhousePartService repo=context.getBean(InhousePartServiceImpl.class);
             repo.save(part);
-
-        return "confirmationaddpart";}
+            return "confirmationaddpart";
+        }
     }
 
 }

@@ -17,6 +17,9 @@
 
 <div class="container">
     <h1>Motor City Performance Garage</h1>
+    <a th:href="@{/about}" class="btn btn-info btn-sm mb-3">
+        About
+    </a>
     <div th:if="${message}" class="alert alert-info">
         <span th:text="${message}"></span>
     </div>

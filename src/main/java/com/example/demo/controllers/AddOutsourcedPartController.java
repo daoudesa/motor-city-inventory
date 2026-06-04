@@ -56,9 +56,7 @@ public class AddOutsourcedPartController {
             return "OutsourcedPartForm";
         }
 
-        OutsourcedPartService repo=context.getBean(OutsourcedPartServiceImpl.class);
-        OutsourcedPart op=repo.findById((int)part.getId());
-        if(op!=null)part.setProducts(op.getProducts());
+        OutsourcedPartService repo = context.getBean(OutsourcedPartServiceImpl.class);
         repo.save(part);
         return "confirmationaddpart";
     }

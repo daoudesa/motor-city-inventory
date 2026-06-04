@@ -22,18 +22,18 @@ import java.util.Set;
 public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    Long id;
     String name;
     @Min(value = 0, message = "Price value must be positive")
-    double price;
+    Double price;
     @Min(value = 0, message = "Inventory value must be positive")
-    int inv;
+    Integer inv;
 
     @Min(value = 0, message = "Minimum inventory must be positive")
-    int minInv;
+    Integer minInv;
 
     @Min(value = 0, message = "Maximum inventory must be positive")
-    int maxInv;
+    Integer maxInv;
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -43,7 +43,7 @@ public abstract class Part implements Serializable {
     public Part() {
     }
 
-    public Part(String name, double price, int inv, int minInv, int maxInv) {
+    public Part(String name, Double price, Integer inv, Integer minInv, Integer maxInv) {
         this.name = name;
         this.price = price;
         this.inv = inv;
@@ -51,7 +51,7 @@ public abstract class Part implements Serializable {
         this.maxInv = maxInv;
     }
 
-    public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
+    public Part(Long id, String name, Double price, Integer inv, Integer minInv, Integer maxInv) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -60,11 +60,11 @@ public abstract class Part implements Serializable {
         this.maxInv = maxInv;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,19 +76,19 @@ public abstract class Part implements Serializable {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getInv() {
+    public Integer getInv() {
         return inv;
     }
 
-    public void setInv(int inv) {
+    public void setInv(Integer inv) {
         this.inv = inv;
     }
 
@@ -101,19 +101,19 @@ public abstract class Part implements Serializable {
     }
 
 
-    public int getMinInv() {
+    public Integer getMinInv() {
         return minInv;
     }
 
-    public void setMinInv(int minInv) {
+    public void setMinInv(Integer minInv) {
         this.minInv = minInv;
     }
 
-    public int getMaxInv() {
+    public Integer getMaxInv() {
         return maxInv;
     }
 
-    public void setMaxInv(int maxInv) {
+    public void setMaxInv(Integer maxInv) {
         this.maxInv = maxInv;
     }
 
@@ -127,7 +127,7 @@ public abstract class Part implements Serializable {
 
         Part part = (Part) o;
 
-        return id == part.id;
+        return id != null && id.equals(part.id);
     }
 
     @Override
