@@ -42,7 +42,7 @@ No database setup is required — H2 creates the schema on first launch and
 `BootStrapData` seeds sample parts and products.
 
 ```bash
-git clone https://github.com/cirbit/motor-city-inventory.git
+git clone https://github.com/daoudesa/motor-city-inventory.git
 cd motor-city-inventory
 ./mvnw spring-boot:run
 ```
