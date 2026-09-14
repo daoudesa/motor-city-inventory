@@ -1,26 +1,79 @@
-<strong>** DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+# Motor City Performance Garage — Inventory Management
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D287 – JAVA FRAMEWORKS
-Welcome to Java Frameworks! This is an opportunity for students to implement user interfaces and learn to leverage existing frameworks, assets, and content for object-oriented programming.
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this project, you will use the Integrated Development Environment (IDE) link in the web links section of this assessment to install the IDE, IntelliJ IDEA (Ultimate Edition). All relevant links are on the course page. Please refer to the course of study for specific links. You will sign up for a free student license using your WGU.edu email address. Please see the “IntelliJ Ultimate Edition Instructions” attachment for instructions on how do this. Next you will download the “Inventory Management Application Template Code” provided in the web links section and open it in IntelliJ IDEA (Ultimate Edition). You will upload this project to a private external GitLab repository and backup regularly. As a part of this, you have been provided with a base code (starting point). 
+A Spring Boot web application for managing the parts and products inventory of a
+specialty automotive performance shop. Parts are tracked individually, assembled
+into products, and guarded by validation rules that keep stock levels consistent
+as items are bought and sold.
 
-## SUPPLEMENTAL RESOURCES  
-1.	How to clone a project to IntelliJ using Git?
+## What it does
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+- **Parts inventory** — add, update, delete, and search parts. Every part is
+  either *inhouse* (manufactured on site, tracked by machine ID) or *outsourced*
+  (supplied by a vendor, tracked by company name). Both are persisted through a
+  single-table inheritance hierarchy with a discriminator column.
+- **Products** — group parts into sellable products. A product's associated parts
+  are managed through a many-to-many join table.
+- **Min/max inventory tracking** — each part carries a minimum and maximum stock
+  level. Validation rejects any inventory value that falls outside that range, so
+  stock can't silently drift out of bounds.
+- **Buy Now** — decrements product inventory at purchase time, but only when the
+  underlying parts can cover it.
+- **Custom validation** — a constraint validator blocks a product's inventory
+  from being raised beyond what its associated parts can supply
+  (*"There aren't enough parts in inventory!"*), and a delete validator prevents
+  removing a part that is still attached to a product.
+- **Search and filter** — keyword filtering across both the parts and products
+  tables.
 
-2. How to create a branch and start Development?
+## Stack
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+| | |
+|---|---|
+| Language | Java 17 |
+| Framework | Spring Boot 2.6.6 (Web, Data JPA, Validation) |
+| Views | Thymeleaf + Bootstrap 5 |
+| Database | H2 (file-backed, auto-created on first run) |
+| Build | Maven (wrapper included) |
+| Tests | JUnit 5 |
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+## Running it
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+No database setup is required — H2 creates the schema on first launch and
+`BootStrapData` seeds sample parts and products.
+
+```bash
+git clone https://github.com/cirbit/motor-city-inventory.git
+cd motor-city-inventory
+./mvnw spring-boot:run
+```
+
+Then open **http://localhost:8080/mainscreen**.
+
+On Windows, use `mvnw.cmd spring-boot:run`.
+
+### Tests
+
+```bash
+./mvnw test
+```
+
+Covers the domain model (parts, products, inheritance-specific fields) plus the
+repository and service layers.
+
+### H2 console
+
+The database console is enabled at **http://localhost:8080/h2-console**.
+Connect with JDBC URL `jdbc:h2:file:~/spring-boot-h2-db102`, user `sa`, and an
+empty password.
+
+## Project layout
+
+```
+src/main/java/com/example/demo/
+├── bootstrap/      # seeds sample inventory at startup
+├── controllers/    # main screen, part and product forms
+├── domain/         # Part (abstract), InhousePart, OutsourcedPart, Product
+├── repositories/   # Spring Data JPA repositories
+├── service/        # service interfaces and implementations
+└── validators/     # custom constraint validators
+```
